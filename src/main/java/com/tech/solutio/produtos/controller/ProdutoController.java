@@ -53,18 +53,7 @@ public class ProdutoController {
 		} else {
 			return ResponseEntity.status(200).body(objetoLista);
 		}
-	}
-	
-	@GetMapping("/fornecedor/{fornecedor_produto}")
-	public ResponseEntity<List<Produtos>> buscarFornecedor(@PathVariable(value = "fornecedor_produto") String fornecedor) {
-		List<Produtos> objetoLista = repository.findAllByFornecedorContainingIgnoreCase(fornecedor);
-
-		if (objetoLista.isEmpty()) {
-			return ResponseEntity.status(204).build();
-		} else {
-			return ResponseEntity.status(200).body(objetoLista);
-		}
-	}
+	}	
 	
 	@GetMapping("/id/{id_produto}")
 	public ResponseEntity<Produtos> buscarPorId(@PathVariable(value = "id_produto") Long id){
